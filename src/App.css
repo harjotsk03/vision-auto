@@ -1,38 +1,204 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#backgroundImg {
+  position: relative;
+  background-image: url(./images/visionImg.webp);
+  background-size: cover;
+  background-position: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#backgroundImg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust opacity as needed */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@font-face {
+  font-family: MyFont;
+  src: url(./font/lemon_milk/LEMONMILK-Regular.otf);
+}
+@font-face {
+  font-family: MyFont2;
+  src: url(./font/garet/Garet-Book.otf);
+}
+@font-face {
+  font-family: MyFont3;
+  src: url(./font/lemon_milk/LEMONMILK-Light.otf);
+}
+
+.main{
+  font-family: MyFont;
+}
+
+.main2{
+  font-family: MyFont2;
+}
+
+.main3{
+  font-family: MyFont3;
+}
+
+#navBar{
+  font-family: MyFont2;
+}
+
+#bookNowBtn{
+  font-family: MyFont2;
+}
+
+#heroTitle{
+  font-family: MyFont;
+}
+
+.heroTitle2 {
+  font-family: MyFont2;
+}
+
+.navBtn{
+  transition: 0.3s ease-in-out;
+}
+
+.navBtn:hover{
+  color: #818181;
+}
+
+.line-md {
+  height: 10vh; /* Adjust the height as needed */
+}
+
+.line-animation {
+  transition: transform 0.5s ease; /* Adjust the duration and timing function as needed */
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.line3 {
+  animation: slideFromRight 0.5s ease-in-out backwards;
+  height: 0.1rem;
+}
+
+.line4 {
+  animation: slideFromRight 0.5s ease-in-out backwards;
+  animation-delay: 0.075s; /* Adjust the delay time as needed */
+  height: 0.1rem;
+}
+
+.desktopView{
+  width: 36.5vw;
+}
+
+.button{
+  font-family: myFont2;
+  transition: 0.3s ease-in-out;
+}
+
+.button:hover{
+  background-color: transparent;
+  border-color: white;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.inputStyle{
+  width: 40vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bookHome{
+  margin-bottom: -5vh
 }
+
+.heightMaintain{
+  height: 68vh;
+}
+
+.monthly{
+  margin-left: 60vw;
+}
+
+.buttonPrimary{
+  background-color: black;
+  padding: 0.5vw 1vw;
+  color: white;
+  font-family: myFont2;
+  border-radius: 10px;
+  border: 2px solid black;
+  transition: 0.3s ease-in-out;
+}
+
+.buttonPrimary:hover{
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+}
+
+.hover{
+  transition: 0.3s ease-in-out;
+}
+
+.hover:hover{
+  transform: rotate(30deg) scale(1.1);
+}
+
+.dateNtimeContainer{
+  display: flex;
+}
+
+#dateNtime{
+  width: 19.75vw;
+}
+
+@media screen and (max-width: 1200px) {
+  .desktopView{
+    width: 100%;
+  }
+
+  .inputStyle{
+    width: 70vw;
+  }
+
+  .navBtn:hover{
+    color: white;
+  }
+
+  .buttonPrimary{
+    background-color: black;
+    padding: 1vw 3vw;
+    color: white;
+    font-family: myFont2;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 3.5vw;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .buttonPrimary:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+  }
+
+  .dateNtimeContainer{
+    display: flex;
+  }
+  
+  #dateNtime{
+    width: 34vw;
+  }
+  
+
+}
+
+
+

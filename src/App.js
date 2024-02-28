@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './components/navbar';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Home } from './pages/home';
+import { Prices } from './pages/prices';
+import { About } from './pages/about';
+import { Reviews } from './pages/reviews';
+import { Book } from './pages/book';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/prices' element={<Prices />}/>
+          <Route path='/about' element={<About />}/>
+          <Route path='/reviews' element={<Reviews />}/>
+          <Route path='/book-now' element={<Book />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
